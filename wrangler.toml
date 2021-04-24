@@ -1,0 +1,7 @@
+type = "webpack"
+workers_dev = true
+webpack_config = "webpack.config.js"
+name = "status"
+
+[triggers]
+crons = ["*/2 * * * *"]
