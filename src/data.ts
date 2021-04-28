@@ -37,3 +37,5 @@ export interface CronResponse {
   id: string;
   ping: PingData;
 }
+
+export type RequestOptions = RequestInit & { timeout: number };
