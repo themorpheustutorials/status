@@ -4,4 +4,4 @@ webpack_config = "webpack.config.js"
 name = "status"
 
 [triggers]
-crons = ["*/2 * * * *"]
+crons = ["*/3 * * * *"]
