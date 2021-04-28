@@ -1,7 +1,12 @@
 type = "webpack"
 workers_dev = true
+account_id = "9bd385412f8007bf1528977393e9ae0b"
 webpack_config = "webpack.config.js"
 name = "status"
+
+kv_namespaces = [
+    { binding = "STATUS", id = "5653c991eb264a7e8a2c2f999f939acf" }
+]
 
 [triggers]
 crons = ["*/3 * * * *"]
