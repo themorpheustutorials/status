@@ -14,7 +14,7 @@
   "author": "author",
   "license": "MIT OR Apache-2.0",
   "devDependencies": {
-    "@cloudflare/workers-types": "^2.2.1",
+    "@cloudflare/workers-types": "^2.2.2",
     "@types/chai": "^4.2.17",
     "@types/mocha": "^8.2.2",
     "chai": "^4.3.4",
