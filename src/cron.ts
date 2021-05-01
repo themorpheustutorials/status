@@ -1,4 +1,4 @@
-import { CronResponse, Namespace, RequestOptions, ServiceQuery } from './data'
+import { CronResponse, Namespace, ServiceQuery } from './data'
 import { getDate, getLocation } from './utils'
 import { saveData } from './kv'
 import { NAMESPACES } from './index'
@@ -23,15 +23,13 @@ async function processNamespace(date: string, time: string, location: string, na
 }
 
 async function processDomain(date: string, location: string, service: ServiceQuery): Promise<CronResponse> {
-  const init: RequestOptions = {
+  const init: RequestInit = {
     method: service.method,
     redirect: 'manual',
-    headers: { 'User-Agent': 'status <https://github.com/themorpheustutorials/status>' },
-    timeout: 3000,
   }
 
   const requestStart = Date.now()
-  const response = await fetchWithTimeout(service.url, init)
+  const response = await timeoutPromise(fetch(service.url, init), 3000)
   const ping = Math.round(Date.now() - requestStart)
 
   const operational = response.status == service.status
@@ -39,17 +37,11 @@ async function processDomain(date: string, location: string, service: ServiceQue
   return { id: service.id, ping: { date, operational, lastPing: ping, location } }
 }
 
-async function fetchWithTimeout(resource: string, options: RequestOptions) {
-  const { timeout = 3000 } = options
-
-  const controller = new AbortController()
-  const id = setTimeout(() => controller.abort(), timeout)
-
-  const response = await fetch(resource, {
-    ...options,
-    signal: controller.signal,
+function timeoutPromise<T>(promise: Promise<T>, timeout: number): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const id = setTimeout(() => reject(), timeout)
+    promise
+      .then(resolve, reject)
+      .then(() => clearTimeout(id))
   })
-  clearTimeout(id)
-
-  return response
 }

@@ -77,7 +77,6 @@ function clean(date: string, services: ServiceData[]) {
       p.pingAvg = avg(p.ping)
 
       if (p.date !== date) {
-        console.log('delete')
         delete p.lastPing
         delete p.ping
       }
