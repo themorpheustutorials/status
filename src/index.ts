@@ -47,6 +47,14 @@ export const NAMESPACES: Namespace[] = [
         method: 'GET',
         status: 200,
       },
+      {
+        id: 'docs',
+        name: 'Documentation',
+        description: '',
+        url: 'https://docs.cryptic-game.net',
+        method: 'GET',
+        status: 200,
+      },
     ],
   },
   {
