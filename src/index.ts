@@ -28,7 +28,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Frontend',
         description: '',
         url: 'https://play.cryptic-game.net',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -36,7 +36,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Website',
         description: '',
         url: 'https://www.cryptic-game.net',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -44,7 +44,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Wiki',
         description: '',
         url: 'https://wiki.cryptic-game.net',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -52,7 +52,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Documentation',
         description: '',
         url: 'https://docs.cryptic-game.net',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
     ],
@@ -66,7 +66,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Website',
         description: '',
         url: 'https://www.the-morpheus.de',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -74,7 +74,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'MorphID',
         description: '',
         url: 'https://id.the-morpheus.de',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -82,7 +82,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Jitsi',
         description: '',
         url: 'https://jitsi.the-morpheus.de',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -90,7 +90,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Certificates',
         description: '',
         url: 'https://certificates.the-morpheus.de',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -98,7 +98,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Coding Challenges',
         description: '',
         url: 'https://cc.the-morpheus.de',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -106,7 +106,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Element',
         description: '',
         url: 'https://element.the-morpheus.de',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -114,7 +114,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'Matrix',
         description: '',
         url: 'https://matrix.the-morpheus.de/_matrix/static/',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -122,7 +122,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'CodiMD',
         description: '',
         url: 'https://md.the-morpheus.de',
-        method: 'GET',
+        method: 'HEAD',
         status: 200,
       },
       {
@@ -130,7 +130,21 @@ export const NAMESPACES: Namespace[] = [
         name: 'The Morpheus Academy',
         description: '',
         url: 'https://the-morpheus.academy',
-        method: 'GET',
+        method: 'HEAD',
+        status: 200,
+      },
+    ],
+  },
+  {
+    id: 'sec_shell',
+    name: 'Secure Shell Networks',
+    services: [
+      {
+        id: 'docs',
+        name: 'Documentation',
+        description: '',
+        url: 'https://docs.secshell.net/de/',
+        method: 'HEAD',
         status: 200,
       },
     ],
