@@ -130,7 +130,7 @@ export const NAMESPACES: Namespace[] = [
         name: 'The Morpheus Academy',
         description: '',
         url: 'https://the-morpheus.academy',
-        method: 'HEAD',
+        method: 'GET',
         status: 200,
       },
     ],
