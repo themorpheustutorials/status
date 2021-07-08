@@ -135,7 +135,7 @@ export const NAMESPACES: Namespace[] = [
       },
       {
         id: 'resources',
-        name: 'The Morpheus Tutorials Resources',
+        name: 'Resources',
         description: '',
         url: 'https://resources.the-morpheus.de',
         method: 'HEAD',
