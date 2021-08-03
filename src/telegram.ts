@@ -15,7 +15,7 @@ function createBody(chatId: string, service: string, namespace: string): Request
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       chat_id: chatId,
-      text: `Service ${service} has an incident. Namespace: ${namespace}`,
+      text: `${namespace}: ${service} has an incident`,
       disable_notification: true,
     }),
   }
