@@ -55,6 +55,14 @@ export const NAMESPACES: Namespace[] = [
         method: 'HEAD',
         status: 200,
       },
+      {
+        id: 'weblate',
+        name: 'Weblate',
+        description: '',
+        url: 'https://weblate.cryptic-game.net',
+        method: 'HEAD',
+        status: 200,
+      },
     ],
   },
   {
@@ -77,14 +85,14 @@ export const NAMESPACES: Namespace[] = [
         method: 'HEAD',
         status: 200,
       },
-/*      {
-        id: 'jitsi',
-        name: 'Jitsi',
-        description: '',
-        url: 'https://jitsi.the-morpheus.de',
-        method: 'HEAD',
-        status: 200,
-      },*/
+      /*      {
+              id: 'jitsi',
+              name: 'Jitsi',
+              description: '',
+              url: 'https://jitsi.the-morpheus.de',
+              method: 'HEAD',
+              status: 200,
+            },*/
       {
         id: 'certificates',
         name: 'Certificates',
@@ -138,6 +146,14 @@ export const NAMESPACES: Namespace[] = [
         name: 'Resources',
         description: '',
         url: 'https://resources.the-morpheus.de',
+        method: 'HEAD',
+        status: 200,
+      },
+      {
+        id: 'bin',
+        name: 'PrivateBin',
+        description: '',
+        url: 'https://bin.the-morpheus.de',
         method: 'HEAD',
         status: 200,
       },
