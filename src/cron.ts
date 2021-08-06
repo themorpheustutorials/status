@@ -2,7 +2,7 @@ import { CronResponse, Namespace, ServiceQuery } from './data'
 import { getDate, getLocation } from './utils'
 import { saveData } from './kv'
 import { NAMESPACES } from './index'
-import { notifyIncident } from './telegram'
+import { notifyIncident } from './alert'
 
 export async function handleScheduled() {
   const { date, time } = getDate()
