@@ -121,7 +121,7 @@ export const NAMESPACES: Namespace[] = [
         id: 'matrix',
         name: 'Matrix',
         description: '',
-        url: 'https://matrix.the-morpheus.de/_matrix/static/',
+        url: 'https://synapse.the-morpheus.de/_matrix/static/',
         method: 'HEAD',
         status: 200,
       },
