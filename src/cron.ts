@@ -2,6 +2,7 @@ import { CronResponse, Namespace, ServiceQuery } from './data'
 import { getDate, getLocation } from './utils'
 import { saveData } from './kv'
 import { NAMESPACES } from './index'
+import { notifyIncident } from './alert'
 
 export async function handleScheduled() {
   const { date, time } = getDate()
@@ -19,7 +20,14 @@ async function processNamespace(date: string, time: string, location: string, na
     newData.push(await processDomain(date, location, service))
   }
 
-  await saveData(date, time, namespace, newData)
+  return Promise.all([
+    saveData(date, time, namespace, newData),
+    ...newData.filter(service => !service.ping.operational)
+      .map(response => notifyIncident(
+        namespace.services.find(service => service.id === response.id)!.name,
+        namespace.name,
+      )),
+  ])
 }
 
 async function processDomain(date: string, location: string, service: ServiceQuery): Promise<CronResponse> {
