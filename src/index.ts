@@ -165,6 +165,14 @@ export const NAMESPACES: Namespace[] = [
         method: 'HEAD',
         status: 200,
       },
+      {
+        id: 'public',
+        name: 'Public',
+        description: '',
+        url: 'https://public.the-morpheus.de',
+        method: 'HEAD',
+        status: 200,
+      },
     ],
   },
   {
