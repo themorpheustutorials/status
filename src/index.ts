@@ -83,7 +83,7 @@ export const NAMESPACES: Namespace[] = [
         description: '',
         url: 'https://id.the-morpheus.de',
         method: 'HEAD',
-        status: 200,
+        status: 301,
       },
       /*      {
               id: 'jitsi',
