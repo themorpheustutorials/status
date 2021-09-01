@@ -1,3 +1,4 @@
+import { notifyIncident, resolveIncident } from './alert'
 import { CronResponse, IncidentData, Namespace, ServiceData } from './data'
 import { avg } from './utils'
 
@@ -16,16 +17,16 @@ async function writeData(namespace: Namespace, data: ServiceData[]) {
 export async function saveData(date: string, time: string, namespace: Namespace, data: CronResponse[]) {
   const services = await readData(namespace)
 
-  data.forEach(response => {
+  for (let response of data) {
     const service = services.find(s => s.id === response.id)
 
     if (!service) {
       addService(time, services, response)
     }
     else {
-      updateService(time, service, response)
+      await updateService(namespace, time, service, response)
     }
-  })
+  }
 
   clean(date, services)
   await writeData(namespace, services)
@@ -41,7 +42,7 @@ function addService(time: string, services: ServiceData[], response: CronRespons
   })
 }
 
-function updateService(time: string, service: ServiceData, response: CronResponse) {
+async function updateService(namespace: Namespace, time: string, service: ServiceData, response: CronResponse) {
   const ping = service.ping.find(p => p.date === response.ping.date && p.location === response.ping.location)
 
   if (!ping) {
@@ -62,10 +63,14 @@ function updateService(time: string, service: ServiceData, response: CronRespons
 
   if (response.ping.operational) {
     const openIncident = service.incidents.find(p => !p.endTime)
-    if (openIncident) openIncident.endTime = time
+    if (openIncident) {
+      openIncident.endTime = time;
+      await resolveIncident(service.id, namespace.name);
+    }
   }
   else if (!service.incidents.find(i => !i.endTime)) {
     service.incidents.push({ startTime: time })
+    await notifyIncident(service.id, namespace.name);
   }
 }
 

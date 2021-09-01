@@ -20,14 +20,7 @@ async function processNamespace(date: string, time: string, location: string, na
     newData.push(await processDomain(date, location, service))
   }
 
-  return Promise.all([
-    saveData(date, time, namespace, newData),
-    ...newData.filter(service => !service.ping.operational)
-      .map(response => notifyIncident(
-        namespace.services.find(service => service.id === response.id)!.name,
-        namespace.name,
-      )),
-  ])
+  return saveData(date, time, namespace, newData);
 }
 
 async function processDomain(date: string, location: string, service: ServiceQuery): Promise<CronResponse> {
