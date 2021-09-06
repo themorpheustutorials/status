@@ -8,6 +8,7 @@ export interface ServiceQuery {
   id: string;
   name: string;
   description: string;
+  visible: boolean;
   url: string;
   method: string;
   status: number;

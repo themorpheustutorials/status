@@ -16,6 +16,11 @@ export async function handleRequest(request: Request): Promise<Response> {
       { status: 404, headers: { 'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': ORIGIN } })
   }
 
+  namespace.services = namespace.services.filter(service => service.visible);
+  namespace.services.forEach(service => {
+    delete service.visible;
+  });
+
   const data = {
     namespace: namespace,
     services: await readData(namespace),
