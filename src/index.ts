@@ -184,6 +184,15 @@ export const NAMESPACES: Namespace[] = [
         method: 'HEAD',
         status: 200,
       },
+      {
+        id: 'grafana',
+        name: 'Grafana',
+        description: '',
+        visible: false,
+        url: 'https://grafana.the-morpheus.org/login',
+        method: 'HEAD',
+        status: 200,        
+      }
     ],
   },
   {
