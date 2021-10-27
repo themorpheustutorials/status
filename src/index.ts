@@ -241,7 +241,7 @@ const router = Router({ base: "/api" })
   .get(
     "/namespace/:id?",
     async ({ params, headers }: { params?: Obj; headers: Headers }) => {
-      const id = params?.namespace;
+      const id = params?.id;
       const host = headers.get("Host");
 
       const namespace = id
