@@ -1,25 +1,24 @@
-const path = require('path')
-
-const mode = process.env.NODE_ENV || 'production'
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.ts',
-  output: {
-    filename: `worker.${mode}.js`,
-    path: path.join(__dirname, 'dist'),
-  },
-  mode,
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-    plugins: [],
-  },
+  entry: "./src/index.ts",
+  mode: "production",
+  target: "webworker",
+  devtool: "source-map",
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        options: { transpileOnly: true },
+        test: /\.ts?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
   },
-}
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
+  output: {
+    filename: "worker.js",
+    path: path.resolve(__dirname, "dist"),
+  },
+};

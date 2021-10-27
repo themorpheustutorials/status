@@ -1,5 +1,6 @@
 export interface Namespace {
   id: string;
+  host: string;
   name: string;
   services: ServiceQuery[];
 }
@@ -8,7 +9,7 @@ export interface ServiceQuery {
   id: string;
   name: string;
   description: string;
-  visible: boolean;
+  visible?: boolean;
   url: string;
   method: string;
   status: number;
