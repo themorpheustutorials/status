@@ -38,7 +38,7 @@ async function processDomain(
   };
 
   const requestStart = Date.now();
-  const response = await timeoutPromise(fetch(service.url, init), 3000);
+  const response = await timeoutPromise(fetch(service.url, init), 1000);
   const ping = Math.round(Date.now() - requestStart);
 
   const operational = response.status == service.status;
