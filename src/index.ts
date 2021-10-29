@@ -200,23 +200,23 @@ export const NAMESPACES: Namespace[] = [
         status: 200,
       },
       {
-        id: 'challenges',
-        name: 'Challenges',
-        description: '',
+        id: "challenges",
+        name: "Challenges",
+        description: "",
         visible: true,
-        url: 'https://the-morpheus.cc',
-        method: 'HEAD',
+        url: "https://the-morpheus.cc",
+        method: "HEAD",
         status: 200,
       },
       {
-        id: 'challenges_api',
-        name: 'Challenges API',
-        description: '',
+        id: "challenges_api",
+        name: "Challenges API",
+        description: "",
         visible: true,
-        url: 'https://api.the-morpheus.cc/status',
-        method: 'HEAD',
+        url: "https://api.the-morpheus.cc/status",
+        method: "HEAD",
         status: 200,
-      }
+      },
     ],
   },
   {
@@ -280,7 +280,6 @@ addEventListener("scheduled", (event) => {
   event.waitUntil(
     handleScheduled().catch((err: unknown) => {
       initSentry(event).captureException(err);
-      throw err;
     })
   );
 });
