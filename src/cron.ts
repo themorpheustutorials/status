@@ -40,7 +40,7 @@ async function processDomain(
   const requestStart = Date.now()
   let response
   try {
-    response = await timeoutPromise(fetch(service.url, init), 5000)
+    response = await timeoutPromise(fetch(service.url, init), 10000)
   }
   catch (e) {
   }
