@@ -87,7 +87,7 @@ export const NAMESPACES: Namespace[] = [
         name: "Website",
         description: "",
         visible: true,
-        url: "https://www.the-morpheus.de",
+        url: "https://the-morpheus.de",
         method: "HEAD",
         status: 200,
       },
