@@ -140,7 +140,7 @@ export const NAMESPACES: Namespace[] = [
         id: "md",
         name: "HedgeDoc",
         description: "",
-        visible: true,
+        visible: false,
         url: "https://md.the-morpheus.de",
         method: "HEAD",
         status: 200,
