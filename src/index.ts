@@ -113,7 +113,7 @@ export const NAMESPACES: Namespace[] = [
         id: "cc",
         name: "Coding Challenges",
         description: "",
-        visible: true,
+        visible: false,
         url: "https://cc.the-morpheus.de",
         method: "HEAD",
         status: 200,
