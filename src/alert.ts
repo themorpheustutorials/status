@@ -1,10 +1,10 @@
 export async function notifyIncident(service: string, namespace: string) {
   const telegramIds: string[] = JSON.parse(TELEGRAM_CHAT_IDS);
-  const discordWebhooks: string[] = JSON.parse(DISCORD_WEBHOOKS);
+  //const discordWebhooks: string[] = JSON.parse(DISCORD_WEBHOOKS);
 
   const message = `${namespace}: ${service} has an incident`;
 
-  const discordBody = createDiscordBody(message);
+  //const discordBody = createDiscordBody(message);
 
   const requests = [
     ...telegramIds.map((id) =>
@@ -12,8 +12,8 @@ export async function notifyIncident(service: string, namespace: string) {
         `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
         createTelegramBody(id, message)
       )
-    ),
-    ...discordWebhooks.map((hook) => fetch(hook, discordBody)),
+    )//,
+    //...discordWebhooks.map((hook) => fetch(hook, discordBody)),
   ];
 
   await Promise.all(requests);
