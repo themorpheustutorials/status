@@ -75,15 +75,3 @@ jobs:
           preCommands: |
             sed -i 's|development|${{ steps.meta.outputs.version }}|g' src/sentry.ts
 
-      - name: Create Sentry release
-        uses: getsentry/action-release@v1
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-        with:
-          environment: production
-          version: ${{ steps.meta.outputs.version }}
-          sourcemaps: ./dist
-          ignore_missing: true
-          strip_common_prefix: true

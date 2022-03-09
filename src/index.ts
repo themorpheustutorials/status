@@ -1,6 +1,5 @@
 import { Namespace } from "./data";
 import { handleScheduled } from "./cron";
-import { initSentry } from "./sentry";
 import { error, json } from "itty-router-extras";
 import { Obj, Router } from "itty-router";
 import { readData } from "./kv";
@@ -260,17 +259,8 @@ const router = Router({ base: "/api" })
 
 addEventListener("fetch", (event) => {
   const response = router.handle(event.request).catch((err: unknown) => {
-    initSentry(event).captureException(err);
     return error(500);
   });
 
   event.respondWith(response);
-});
-
-addEventListener("scheduled", (event) => {
-  event.waitUntil(
-    handleScheduled().catch((err: unknown) => {
-      initSentry(event).captureException(err);
-    })
-  );
 });
