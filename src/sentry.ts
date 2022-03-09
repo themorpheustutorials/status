@@ -4,6 +4,8 @@ export function initSentry(
   event: FetchEvent | ScheduledEvent,
   additionalOptions = {}
 ) {
+  return;
+  /*
   const sentry = new Toucan({
     dsn: SENTRY_DSN,
     event: event,
@@ -44,4 +46,5 @@ export function initSentry(
   }
 
   return sentry;
+  */
 }
