@@ -22,6 +22,8 @@ export async function notifyIncident(service: string, namespace: string) {
 }
 
 export async function resolveIncident(service: string, namespace: string) {
+  return;
+  /*
   const telegramIds: string[] = JSON.parse(TELEGRAM_CHAT_IDS);
   const discordWebhooks: string[] = JSON.parse(DISCORD_WEBHOOKS);
 
@@ -40,6 +42,7 @@ export async function resolveIncident(service: string, namespace: string) {
   ];
 
   await Promise.all(requests);
+  */
 }
 
 function createTelegramBody(
