@@ -72,6 +72,4 @@ jobs:
         uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          preCommands: |
-            sed -i 's|development|${{ steps.meta.outputs.version }}|g' src/sentry.ts
 
