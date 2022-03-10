@@ -1,13 +1,12 @@
 import { CronResponse, Namespace, ServiceQuery } from "./data";
 import { getDate, getLocation } from "./utils";
 import { saveData } from "./kv";
-import { NAMESPACES } from "./main";
 
-export async function handleScheduled() {
+export async function handleScheduled(namespaces: Namespace[]) {
   const { date, time } = getDate();
   const location = await getLocation();
 
-  for (let namespace of NAMESPACES) {
+  for (let namespace of namespaces) {
     await processNamespace(date, time, location, namespace);
   }
 }

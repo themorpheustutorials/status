@@ -6,7 +6,7 @@ import { namespaces as ns } from "./config.json";
 import { handleScheduled } from "./cron";
 import { Sentry } from "./sentry";
 
-export const NAMESPACES: Namespace[] = ns;
+const NAMESPACES: Namespace[] = ns;
 
 const router = Router({ base: "/api" })
   .get(
@@ -59,11 +59,12 @@ addEventListener("fetch", (event: FetchEvent) => {
 
 addEventListener("scheduled", (event: ScheduledEvent) => {
   event.waitUntil(
-    handleScheduled().catch((err: unknown) => {
-      if (SENTRY_DSN) {
-        const sentry = new Sentry(event, SENTRY_DSN);
-        sentry.captureException(err);
-      }
-    })
+    handleScheduled(NAMESPACES)
+      .catch((err: unknown) => {
+        if (SENTRY_DSN) {
+          const sentry = new Sentry(event, SENTRY_DSN);
+          sentry.captureException(err);
+        }
+      })
   );
 });
