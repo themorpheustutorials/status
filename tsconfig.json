@@ -1,15 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "./tsc-out/",
     "strict": true,
-    "noImplicitAny": true,
     "module": "ESNext",
     "target": "ESNext",
-    "lib": [
-      "ESNext",
-    ],
-    "allowJs": false,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "types": [
       "@cloudflare/workers-types"
     ]

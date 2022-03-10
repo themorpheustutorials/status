@@ -5,7 +5,7 @@ export function getDate(): { date: string; time: string } {
 
 export async function getLocation(): Promise<string> {
   const res = await fetch("https://cloudflare-dns.com/dns-query", {
-    method: "OPTIONS",
+    method: "OPTIONS"
   });
 
   const ray = res.headers.get("cf-ray");

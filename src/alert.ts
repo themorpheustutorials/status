@@ -48,22 +48,22 @@ export async function resolveIncident(service: string, namespace: string) {
 function createTelegramBody(
   chatId: string,
   message: string
-): RequestInitializerDict {
+): RequestInit {
   return {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       chat_id: chatId,
       text: message,
-      disable_notification: true,
-    }),
+      disable_notification: true
+    })
   };
 }
 
-function createDiscordBody(message: string): RequestInitializerDict {
+function createDiscordBody(message: string): RequestInit {
   return {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content: message }),
+    body: JSON.stringify({ content: message })
   };
 }

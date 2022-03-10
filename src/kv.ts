@@ -1,4 +1,3 @@
-import { notifyIncident, resolveIncident } from "./alert";
 import { CronResponse, IncidentData, Namespace, ServiceData } from "./data";
 import { avg } from "./utils";
 
@@ -10,7 +9,7 @@ export async function readData(namespace: Namespace): Promise<ServiceData[]> {
 
 async function writeData(namespace: Namespace, data: ServiceData[]) {
   await STATUS.put(namespace.id, JSON.stringify(data), {
-    expirationTtl: EXPIRE,
+    expirationTtl: EXPIRE
   });
 }
 
@@ -27,7 +26,8 @@ export async function saveData(
 
     if (!service) {
       addService(time, services, response);
-    } else {
+    }
+    else {
       await updateService(namespace, time, service, response);
     }
   }
@@ -48,7 +48,7 @@ function addService(
   services.push({
     id: response.id,
     ping: [response.ping],
-    incidents: incidents,
+    incidents: incidents
   });
 }
 
@@ -65,7 +65,8 @@ async function updateService(
 
   if (!ping) {
     service.ping.push(response.ping);
-  } else {
+  }
+  else {
     if (!response.ping.lastPing) {
       throw new Error("Illegal argument: missing last ping!");
     }
@@ -82,11 +83,12 @@ async function updateService(
     const openIncident = service.incidents.find((p) => !p.endTime);
     if (openIncident) {
       openIncident.endTime = time;
-      await resolveIncident(service.id, namespace.name);
+      // await resolveIncident(service.id, namespace.name);
     }
-  } else if (!service.incidents.find((i) => !i.endTime)) {
+  }
+  else if (!service.incidents.find((i) => !i.endTime)) {
     service.incidents.push({ startTime: time });
-    await notifyIncident(service.id, namespace.name);
+    // await notifyIncident(service.id, namespace.name);
   }
 }
 
