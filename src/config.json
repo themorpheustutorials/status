@@ -89,7 +89,7 @@
           "name": "MorphID",
           "description": "",
           "visible": true,
-          "url": "https://id.the-morpheus.de",
+          "url": "https://id.the-morpheus.de/realms/main/account/",
           "method": "HEAD",
           "status": 301
         },
