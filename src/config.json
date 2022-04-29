@@ -91,7 +91,7 @@
           "visible": true,
           "url": "https://id.the-morpheus.de/realms/main/account/",
           "method": "HEAD",
-          "status": 301
+          "status": 200
         },
         {
           "id": "certificates",
